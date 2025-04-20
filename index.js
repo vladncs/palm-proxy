@@ -20,11 +20,20 @@ app.post("/submit", async (req, res) => {
       body: JSON.stringify(req.body)
     });
 
-    const data = await googleResponse.json();
+    const text = await googleResponse.text();
+    let data;
+
+    try {
+      data = JSON.parse(text);
+    } catch (err) {
+      console.error("Google Script did not return valid JSON:", text);
+      return res.status(500).json({ success: false, error: "Invalid JSON from Google Script" });
+    }
+
     res.json(data);
   } catch (err) {
     console.error("Error forwarding to Google Script:", err);
-    res.status(500).json({ success: false, error: "Proxy error" });
+    res.status(500).json({ success: false, error: "Proxy error", details: err.message });
   }
 });
 
