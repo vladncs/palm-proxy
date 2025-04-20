@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyirv_wbfIoW2E3Hm3mMAeA3aROAIZ4Z5qxXWtUFViBxkH8G8j6hpmNeRFmdKoReakz/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzaPz4to-DEM5DMLX7Vx8Sg6qOjBvtmRtGeHcluIcjwm6bXYY6uWAiinOze39wAVvkK_A/exec";
 
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
